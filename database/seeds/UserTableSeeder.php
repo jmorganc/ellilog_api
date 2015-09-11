@@ -15,7 +15,7 @@ class UserTableSeeder extends Seeder
             'first_name' => str_random(10),
             'last_name' => str_random(10),
             'email' => str_random(10).'@gmail.com',
-            'created_at' => '2015-12-31 00:00:00'
+            'created_at' => date('Y-m-d H:i:s')
         ]);
     }
 }
