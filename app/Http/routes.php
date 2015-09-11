@@ -11,10 +11,15 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->welcome();
-});
+use Illuminate\Http\Response;
 
-$app->get('/v0', function () use ($app) {
-    return 'v0';
+$app->group(['prefix' => 'api/v0'], function($app) {
+    $app->get('/', function () use ($app) {
+        return $app->welcome();
+    });
+
+    $app->get('/users', function () use ($app) {
+        $users = app('db')->select('SELECT * FROM users');
+        return response()->json($users, '200');
+    });
 });
