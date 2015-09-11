@@ -14,3 +14,7 @@
 $app->get('/', function () use ($app) {
     return $app->welcome();
 });
+
+$app->get('/v0', function () use ($app) {
+    return 'v0';
+});
