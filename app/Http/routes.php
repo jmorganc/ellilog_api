@@ -20,6 +20,17 @@ $app->group(['prefix' => 'api/v0'], function($app) {
 
     $app->get('/users', function () use ($app) {
         $users = app('db')->select('SELECT * FROM users');
+
+        $users = array_map(function($user)
+        {
+            return [
+                'first_name' => $user->{'first_name'},
+                'last_name' => $user->{'last_name'},
+                'email' => $user->{'email'},
+                'active' => (boolean) $user->{'active'}
+            ];
+        }, $users);
+
         return response()->json(['data' => $users], '200');
     });
 });
