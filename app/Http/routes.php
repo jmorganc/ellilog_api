@@ -20,6 +20,6 @@ $app->group(['prefix' => 'api/v0'], function($app) {
 
     $app->get('/users', function () use ($app) {
         $users = app('db')->select('SELECT * FROM users');
-        return response()->json($users, '200');
+        return response()->json(['data' => $users], '200');
     });
 });

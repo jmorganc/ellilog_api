@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name', 25);
             $table->string('last_name', 25);
             $table->string('email');
+            $table->boolean('active');
             $table->timestamp('last_login');
             $table->timestamps();
         });
