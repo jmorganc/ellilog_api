@@ -11,13 +11,13 @@
 |
 */
 
-// use Illuminate\Http\Response;
-// Route::resource('users', 'UsersController');
 
 $app->group(['prefix' => 'api/v0', 'namespace' => 'App\Http\Controllers'], function($app) {
+
     $app->get('/', function () use ($app) {
         return $app->welcome();
     });
 
     $app->get('users', 'UserController@index');
+
 });
