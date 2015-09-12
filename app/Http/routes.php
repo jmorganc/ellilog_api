@@ -11,26 +11,13 @@
 |
 */
 
-use Illuminate\Http\Response;
+// use Illuminate\Http\Response;
+// Route::resource('users', 'UsersController');
 
-$app->group(['prefix' => 'api/v0'], function($app) {
+$app->group(['prefix' => 'api/v0', 'namespace' => 'App\Http\Controllers'], function($app) {
     $app->get('/', function () use ($app) {
         return $app->welcome();
     });
 
-    $app->get('/users', function () use ($app) {
-        $users = app('db')->select('SELECT * FROM users');
-
-        $users = array_map(function($user)
-        {
-            return [
-                'first_name' => $user->{'first_name'},
-                'last_name' => $user->{'last_name'},
-                'email' => $user->{'email'},
-                'active' => (boolean) $user->{'active'}
-            ];
-        }, $users);
-
-        return response()->json(['data' => $users], '200');
-    });
+    $app->get('users', 'UserController@index');
 });
