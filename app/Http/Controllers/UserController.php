@@ -7,11 +7,6 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function test()
-    {
-        return 'hello test';
-    }
-
     public function index()
     {
         $users = User::all();

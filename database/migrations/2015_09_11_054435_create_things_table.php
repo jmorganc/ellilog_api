@@ -13,8 +13,10 @@ class CreateThingsTable extends Migration
     public function up()
     {
         Schema::create('things', function (Blueprint $table) {
-            $table->increments('id');
+            // $table->increments('id');
+            $table->string('thing')->unique();
             $table->timestamps();
+            $table->primary('thing');
         });
     }
 
