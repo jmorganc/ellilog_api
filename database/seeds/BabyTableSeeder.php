@@ -22,15 +22,15 @@ class BabyTableSeeder extends Seeder
             // 'updated_at' => $faker->dateTime()
         ]);
 
-        foreach(range(1, 5) as $index)
-        {
-            DB::table('babies')->insert([
-                'first_name' => $faker->firstName(),
-                'last_name' => $faker->lastName(),
-                'active' => $faker->boolean(),
-                'created_at' => date('Y-m-d H:m:s'),
-                'updated_at' => $faker->dateTime()
-            ]);
-        }
+        // foreach(range(1, 5) as $index)
+        // {
+        //     DB::table('babies')->insert([
+        //         'first_name' => $faker->firstName(),
+        //         'last_name' => $faker->lastName(),
+        //         'active' => $faker->boolean(),
+        //         'created_at' => date('Y-m-d H:m:s'),
+        //         'updated_at' => $faker->dateTime()
+        //     ]);
+        // }
     }
 }
