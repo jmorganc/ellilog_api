@@ -14,6 +14,9 @@ class CreateBabiesTable extends Migration
     {
         Schema::create('babies', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('first_name', 25);
+            $table->string('last_name', 25);
+            $table->boolean('active');
             $table->timestamps();
         });
     }

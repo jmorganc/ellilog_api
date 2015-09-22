@@ -14,13 +14,39 @@ class ThingTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        foreach(range(1, 5) as $index)
-        {
-            DB::table('things')->insert([
-                'thing' => str_random(5),
-                'created_at' => date('Y-m-d H:m:s'),
-                'updated_at' => $faker->dateTime()
-            ]);
-        }
+        DB::table('things')->insert([
+            'thing' => 'Milk',
+            'active' => true,
+            'created_at' => date('Y-m-d H:m:s'),
+            // 'updated_at' => $faker->dateTime()
+        ]);
+        DB::table('things')->insert([
+            'thing' => 'Nap',
+            'active' => true,
+            'created_at' => date('Y-m-d H:m:s'),
+            // 'updated_at' => $faker->dateTime()
+        ]);
+        DB::table('things')->insert([
+            'thing' => 'Poop',
+            'active' => true,
+            'created_at' => date('Y-m-d H:m:s'),
+            // 'updated_at' => $faker->dateTime()
+        ]);
+        DB::table('things')->insert([
+            'thing' => 'Pee',
+            'active' => true,
+            'created_at' => date('Y-m-d H:m:s'),
+            // 'updated_at' => $faker->dateTime()
+        ]);
+
+        // foreach(range(1, 5) as $index)
+        // {
+        //     DB::table('things')->insert([
+        //         'thing' => str_random(5),
+        //         'active' => $faker->boolean(),
+        //         'created_at' => date('Y-m-d H:m:s'),
+        //         'updated_at' => $faker->dateTime()
+        //     ]);
+        // }
     }
 }

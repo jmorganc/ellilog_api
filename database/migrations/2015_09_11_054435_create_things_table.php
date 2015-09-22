@@ -15,6 +15,7 @@ class CreateThingsTable extends Migration
         Schema::create('things', function (Blueprint $table) {
             // $table->increments('id');
             $table->string('thing')->unique();
+            $table->boolean('active');
             $table->timestamps();
             $table->primary('thing');
         });
