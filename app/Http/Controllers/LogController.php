@@ -17,7 +17,7 @@ class LogController extends Controller
         {
             return [
                 'user_id' => (int) $log->user_id,
-                'baby_id' =>(int) log->baby_id,
+                'baby_id' =>(int) $log->baby_id,
                 'thing_id' => $log->thing_id,
                 'data' => $log->data,
                 'notes' => $log->notes,
