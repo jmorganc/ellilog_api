@@ -67,7 +67,13 @@ $app->group(['prefix' => 'api/v0/things'], function($app) {
 });
 
 
-$app->group(['prefix' => 'api/v0/log'], function($app) {
+$app->group(['prefix' => 'api/v0/logs'], function($app) {
+    $app->get('/', function() use($app) {
+        $controller = $app->make('App\Http\Controllers\LogController');
+        return $controller->index();
+    });
+
+
     $app->post('/', function() use($app) {
         $controller = $app->make('App\Http\Controllers\LogController');
         return $controller->save();
