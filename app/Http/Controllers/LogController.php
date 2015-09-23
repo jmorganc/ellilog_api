@@ -8,6 +8,27 @@ use DB;
 
 class LogController extends Controller
 {
+    public function index()
+    {
+        $filters = app('request')->input();
+        $logs = DB::select('SELECT * FROM logs');
+
+        $logs = array_map(function($log)
+        {
+            return [
+                'user_id' => (int) $log->user_id,
+                'baby_id' =>(int) $log->baby_id,
+                'thing_id' => $log->thing_id,
+                'data' => $log->data,
+                'notes' => $log->notes,
+                'created_at' => $log->created_at
+            ];
+        }, $logs);
+
+        return response()->json(['data' => $logs], '200');
+    }
+
+
     public function save()
     {
         $filters = app('request')->input();
