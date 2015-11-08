@@ -38,6 +38,12 @@ class ThingTableSeeder extends Seeder
             'created_at' => date('Y-m-d H:m:s'),
             // 'updated_at' => $faker->dateTime()
         ]);
+        DB::table('things')->insert([
+            'thing' => 'Comment',
+            'active' => true,
+            'created_at' => date('Y-m-d H:m:s'),
+            // 'updated_at' => $faker->dateTime()
+        ]);
 
         // foreach(range(1, 5) as $index)
         // {
