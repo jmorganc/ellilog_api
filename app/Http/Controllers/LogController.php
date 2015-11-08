@@ -13,12 +13,15 @@ class LogController extends Controller
         $filters = app('request')->input();
 
         $query = 'SELECT * FROM logs WHERE baby_id = :baby_id AND created_at >= DATE_SUB(NOW(), INTERVAL 12 HOUR) ORDER BY created_at DESC';
-        // if (array_key_exists('date', $filters) {
-        //     $query = 'SELECT * FROM logs WHERE ';
-        // }
+        $filter_on = 'baby_id';
+
+        if (array_key_exists('id', $filters)) {
+            $query = 'SELECT * FROM logs WHERE id = :id';
+            $filter_on = 'id';
+        }
 
         $logs = DB::select($query, [
-            'baby_id' => (int) $filters['baby_id']
+            $filter_on => (int) $filters[$filter_on]
         ]);
         // $babies = DB::select('SELECT * FROM babies WHERE active = :active AND id = :id', [
         //     'active' => (boolean) $filters['active'],
@@ -28,6 +31,7 @@ class LogController extends Controller
         $logs = array_map(function($log)
         {
             return [
+                'id' => (int) $log->id,
                 'user_id' => (int) $log->user_id,
                 'baby_id' => (int) $log->baby_id,
                 'thing_id' => $log->thing_id,
