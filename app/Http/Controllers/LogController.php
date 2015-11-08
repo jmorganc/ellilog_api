@@ -59,4 +59,20 @@ class LogController extends Controller
 
         return 'asdf';
     }
+
+
+    public function update($id)
+    {
+        $filters = app('request')->input();
+        $res = DB::update('UPDATE logs SET user_id = :user_id, baby_id = :baby_id, thing_id = :thing_id, data = :data, notes = :notes WHERE id = :id', [
+            'id' => (int) $id,
+            'user_id' => (int) $filters['user_id'],
+            'baby_id' => (int) $filters['baby_id'],
+            'thing_id' => $filters['thing_id'],
+            'data' => $filters['data'],
+            'notes' => $filters['notes']
+        ]);
+
+        return $res;
+    }
 }

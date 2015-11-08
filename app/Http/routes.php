@@ -78,4 +78,10 @@ $app->group(['prefix' => 'api/v0/logs'], function($app) {
         $controller = $app->make('App\Http\Controllers\LogController');
         return $controller->save();
     });
+
+
+    $app->post('/{id}', function($id) use($app) {
+        $controller = $app->make('App\Http\Controllers\LogController');
+        return $controller->update($id);
+    });
 });
