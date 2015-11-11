@@ -12,7 +12,7 @@ class LogController extends Controller
     {
         $filters = app('request')->input();
 
-        $query = 'SELECT * FROM logs WHERE baby_id = :baby_id AND created_at >= DATE_SUB(NOW(), INTERVAL 12 HOUR) ORDER BY created_at DESC';
+        $query = 'SELECT * FROM logs WHERE baby_id = :baby_id AND created_at >= DATE_SUB(NOW(), INTERVAL 24 HOUR) ORDER BY created_at DESC';
         $filter_on = 'baby_id';
 
         if (array_key_exists('id', $filters)) {
