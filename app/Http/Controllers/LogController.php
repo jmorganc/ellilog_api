@@ -23,10 +23,6 @@ class LogController extends Controller
         $logs = DB::select($query, [
             $filter_on => (int) $filters[$filter_on]
         ]);
-        // $babies = DB::select('SELECT * FROM babies WHERE active = :active AND id = :id', [
-        //     'active' => (boolean) $filters['active'],
-        //     'id' => (int) $filters['id']
-        // ]);
 
         $logs = array_map(function($log)
         {
