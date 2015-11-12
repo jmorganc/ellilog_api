@@ -60,7 +60,7 @@ class LogController extends Controller
     public function update($id)
     {
         $datetime = new \DateTime();
-        $datetime_string = $datetime->format('Y-m-d H:m:s');
+        $datetime_string = $datetime->format('Y-m-d H:i:s');
 
         $filters = app('request')->input();
         $res = DB::update('UPDATE logs SET user_id = :user_id, baby_id = :baby_id, thing_id = :thing_id, data = :data, notes = :notes, updated_at = :updated_at WHERE id = :id', [
